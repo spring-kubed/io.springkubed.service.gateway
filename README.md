@@ -62,9 +62,16 @@ http :8080/actuator/health
 ./mvnw spring-boot:build-image
 ```
 
+## Push to registry
+
+```bash
+docker push dashaun/io.springkubed.service.gateway:v0.0.0-x86_64
+docker tag dashaun/io.springkubed.service.gateway:v0.0.0-x86_64 dashaun/io.springkubed.service.gateway:latest
+docker push dashaun/io.springkubed.service.gateway:latest
+```
+
 ## Deploy to Kubernetes
 
 ```bash
 kn service create gateway-service --image dashaun/io.springkubed.service.gateway:latest --port 8080 -n springkubed-io
-
 ```
